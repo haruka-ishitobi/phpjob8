@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        th, td {
+            padding : 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <select name="" id="langage" onchange="change()">
+        <option value="" selected>選択してください</option>
+        <option value="日本語" >日本語</option>
+        <option value="English">English</option>
+        <option value="全て表示">全て表示</option>
+    </select>
+    <table id="table">
+        <tr>
+            <th>日本</th>
+            <td >こんにちは</td>
+            <td class="ja">ありがとう</td>
+            <td class="ja">さようなら</td>
+        </tr>
+        <tr>
+            <th>English</th>
+            <td>Hello</td>
+            <td>Thank you</td>
+            <td>Good Bye</td>
+        </tr>
+    </table>
+    <script>
+    function change(){
+        let table = document.getElementById('table');
+    
+        let set_lng = document.getElementById('langage').value;
+    
+         let ja_table = table.rows[0];
+         let en_table = table.rows[1];
+         console.log(ja_table);
+         console.log(set_lng);
+        switch(set_lng){
+            case  "日本語":
+                ja_table.style.display = "block";
+                en_table.style.display = "none";
+            break;
+
+            case "English":
+                ja_table.style.display = "none";
+                en_table.style.display = "block";
+            break;
+            
+            case "全て表示":
+                ja_table.style.display = "block";
+                en_table.style.display = "block";
+            break;
+        }
+    }
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>
